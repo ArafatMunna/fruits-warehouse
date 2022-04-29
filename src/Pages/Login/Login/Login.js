@@ -90,7 +90,7 @@ const Login = () => {
                 </Form>
                 <div className="d-flex justify-content-between mt-4 flex-wrap">
                     <p>
-                        New to Fitness Trainer?{' '}
+                        New to Fruits Warehouse?{' '}
                         <Link className="text-decoration-none" to="/register">
                             Register
                         </Link>
