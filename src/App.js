@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
+import AddItem from './Pages/Home/AddItem/AddItem';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/additem" element={<AddItem />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

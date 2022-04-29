@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
-import "./Navigation.css"
+import './Navigation.css';
 
 const Navigation = () => {
     const [user] = useAuthState(auth);
@@ -17,9 +17,10 @@ const Navigation = () => {
         <Navbar
             collapseOnSelect
             expand="lg"
+            bg='info'
             variant="dark"
             sticky="top"
-            className='navigation'
+            className="navigation"
         >
             <Container>
                 <Navbar.Brand className="text-black" as={Link} to="/">
@@ -31,12 +32,18 @@ const Navigation = () => {
                         <Nav.Link as={CustomLink} to="/">
                             Home
                         </Nav.Link>
+                        <Nav.Link as={CustomLink} to="/additem">
+                            AddItem
+                        </Nav.Link>
                         <Nav.Link as={CustomLink} to="/blogs">
                             Blogs
                         </Nav.Link>
                         {user ? (
                             <div>
-                                <Nav.Link onClick={handleSignOut}>
+                                <Nav.Link
+                                    className="text-black"
+                                    onClick={handleSignOut}
+                                >
                                     Logout
                                 </Nav.Link>
                             </div>
