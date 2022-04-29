@@ -31,6 +31,7 @@ const AddItem = () => {
 
         const { data } = await axios.post('http://localhost:5000/item', item);
         toast.success(data.message);
+        event.target.reset();
     };
     return (
         <div className="container">
