@@ -1,3 +1,4 @@
+import "./App.css"
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Blogs from './Pages/Blogs/Blogs';
@@ -9,7 +10,7 @@ import Navigation from './Pages/Shared/Navigation/Navigation';
 
 function App() {
     return (
-        <div>
+        <div className='App'>
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />

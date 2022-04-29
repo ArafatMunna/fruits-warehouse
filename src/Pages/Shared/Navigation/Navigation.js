@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import CustomLink from '../CustomLink/CustomLink';
 
 const Navigation = () => {
     const [user] = useAuthState(auth);
@@ -12,16 +13,24 @@ const Navigation = () => {
         signOut(auth);
     };
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar
+            collapseOnSelect
+            expand="lg"
+            bg="info"
+            variant="dark"
+            sticky="top"
+        >
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand className="text-black" as={Link} to="/">
+                    Fruits Warehouse
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/">
+                        <Nav.Link as={CustomLink} to="/">
                             Home
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/blogs">
+                        <Nav.Link as={CustomLink} to="/blogs">
                             Blogs
                         </Nav.Link>
                         {user ? (
@@ -31,7 +40,7 @@ const Navigation = () => {
                                 </Nav.Link>
                             </div>
                         ) : (
-                            <Nav.Link as={Link} to="/login">
+                            <Nav.Link as={CustomLink} to="/login">
                                 Login
                             </Nav.Link>
                         )}
