@@ -1,0 +1,10 @@
+.reset-btn {
+    background-color: rgba(169, 169, 169, 0);
+}
+
+@media screen and (max-width: 767px) {
+    .reset-btn {
+        font-size: 15px;
+        background-color: rgba(169, 169, 169, 0);
+    }
+}

@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+    useSendPasswordResetEmail,
+    useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const Login = () => {
