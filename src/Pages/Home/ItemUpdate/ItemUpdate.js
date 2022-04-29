@@ -1,12 +1,19 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Item = ({ item }) => {
+const ItemUpdate = () => {
+    const { itemId } = useParams();
+    const [item, setItem] = useState({});
     const { name, img, _id, description, price, quantity, supplierName } = item;
 
-    const navigate = useNavigate();
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5000/item/${itemId}`)
+            .then((res) => setItem(res.data));
+    }, [itemId]);
     return (
-        <div className="col-sm-12 col-md-6 col-lg-4 g-5">
+        <div className="container mt-5">
             <div className="card">
                 <img
                     height={250}
@@ -32,4 +39,4 @@ const Item = ({ item }) => {
     );
 };
 
-export default Item;
+export default ItemUpdate;

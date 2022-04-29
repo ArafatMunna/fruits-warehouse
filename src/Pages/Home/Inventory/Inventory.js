@@ -8,7 +8,7 @@ const Inventory = () => {
     useEffect(() => {
         axios
             .get('http://localhost:5000/item?limit=6')
-            .then((res) => setItems(res.data));
+            .then((res) => setItems(res.data))
     }, []);
     return (
         <div>

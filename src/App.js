@@ -9,6 +9,9 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import AddItem from './Pages/Home/AddItem/AddItem';
 import 'react-toastify/dist/ReactToastify.css';
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import ItemUpdate from './Pages/Home/ItemUpdate/ItemUpdate';
+
 
 function App() {
     return (
@@ -16,7 +19,22 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/additem" element={<AddItem />} />
+                <Route
+                    path="/additem"
+                    element={
+                        <RequireAuth>
+                            <AddItem />
+                        </RequireAuth>
+                    }
+                />
+                <Route
+                    path="/inventory/:itemId"
+                    element={
+                        <RequireAuth>
+                            <ItemUpdate />
+                        </RequireAuth>
+                    }
+                />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
