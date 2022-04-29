@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
+import "./Navigation.css"
 
 const Navigation = () => {
     const [user] = useAuthState(auth);
@@ -16,9 +17,9 @@ const Navigation = () => {
         <Navbar
             collapseOnSelect
             expand="lg"
-            bg="info"
             variant="dark"
             sticky="top"
+            className='navigation'
         >
             <Container>
                 <Navbar.Brand className="text-black" as={Link} to="/">
