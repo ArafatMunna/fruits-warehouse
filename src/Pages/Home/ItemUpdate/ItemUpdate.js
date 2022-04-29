@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './ItemUpdate.css';
@@ -15,8 +16,8 @@ const ItemUpdate = () => {
             .then((res) => setItem(res.data));
     }, [itemId, item]);
 
-    const updateItem = async (newQuantity) => {
-        await axios
+    const updateItem = (newQuantity) => {
+        axios
             .put(`http://localhost:5000/item/${itemId}`, { newQuantity })
             .then((res) => {
                 setItem(res.data);
@@ -26,13 +27,22 @@ const ItemUpdate = () => {
 
     const handleDelivered = () => {
         if (quantity > 0) {
-            const newQuantity = quantity - 1;
+            const newQuantity = parseInt(quantity) - 1;
             updateItem(newQuantity);
         }
     };
+
+    const handleRestock = (event) => {
+        event.preventDefault();
+
+        const addedQuantity = event.target.quantity.value;
+        const newQuantity = parseInt(quantity) + parseInt(addedQuantity);
+        updateItem(newQuantity);
+        event.target.reset();
+    };
     return (
         <div className="container mt-5">
-            <div className="mx-auto card-container">
+            <div className="mx-auto card-container shadow">
                 <div className="card">
                     <img src={img} className="card-img-top" alt="..." />
                     <div className="card-body">
@@ -50,6 +60,26 @@ const ItemUpdate = () => {
                         </button>
                     </div>
                 </div>
+            </div>
+            <div className="mx-auto shadow card-container mt-3 p-3">
+                <Form onSubmit={handleRestock}>
+                    <Form.Group className="mb-3" controlId="formBasicQuantity">
+                        <Form.Label>Quantity</Form.Label>
+                        <Form.Control
+                            type="number"
+                            placeholder="Quantity"
+                            name="quantity"
+                            required
+                        />
+                    </Form.Group>
+                    <Button
+                        className="w-50 d-block mx-auto "
+                        variant="info"
+                        type="submit"
+                    >
+                        Restock Item
+                    </Button>
+                </Form>
             </div>
         </div>
     );
