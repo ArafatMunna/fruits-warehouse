@@ -27,14 +27,10 @@ const AddItem = () => {
             img,
             email,
         };
-        console.log(item);
+        // console.log(item);
 
-         const { data } = await axios.post('http://localhost:5000/item', item);
-        if (!data.success) {
-            return console.log(data.error);
-        }
-
-        console.log(data.message);
+        const { data } = await axios.post('http://localhost:5000/item', item);
+        toast.success(data.message);
     };
     return (
         <div className="container">

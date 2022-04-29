@@ -1,9 +1,10 @@
 import React from 'react';
+import Inventory from '../Inventory/Inventory';
 
 const Home = () => {
     return (
-        <div style={{ height: '100vh' }}>
-            <h1>Welcome to Fruits Warehouse</h1>
+        <div className="container">
+            <Inventory />
         </div>
     );
 };

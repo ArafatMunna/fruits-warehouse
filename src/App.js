@@ -8,10 +8,11 @@ import Register from './Pages/Login/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import AddItem from './Pages/Home/AddItem/AddItem';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
-        <div className='App'>
+        <div className="App">
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
