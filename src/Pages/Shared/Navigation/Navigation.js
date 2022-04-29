@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Nav } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navigation = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -26,4 +26,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Navigation;
