@@ -9,6 +9,7 @@ import {
 } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
     const emailRef = useRef();
@@ -23,6 +24,12 @@ const Login = () => {
         useSignInWithEmailAndPassword(auth);
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    let pageLoading;
+
+    if (loading) {
+        pageLoading = <Loading />;
+    }
 
     useEffect(() => {
         if (hookError) {
@@ -58,9 +65,8 @@ const Login = () => {
     return (
         <div className="container">
             <div className=" mx-auto mt-5 form-container px-4 pt-5">
-                <h2 className="text-info text-center mb-4">
-                    Please Login
-                </h2>
+                {pageLoading}
+                <h2 className="text-info text-center mb-4">Please Login</h2>
                 <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>

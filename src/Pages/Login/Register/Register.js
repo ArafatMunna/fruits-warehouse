@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -14,6 +15,12 @@ const Register = () => {
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
+
+    let pageLoading;
+
+    if (loading) {
+        pageLoading = <Loading />;
+    }
 
     useEffect(() => {
         if (hookError) {
@@ -44,9 +51,8 @@ const Register = () => {
     return (
         <div className="container">
             <div className="mx-auto mt-5 px-4 pt-5 form-container">
-                <h2 className="text-info text-center mb-4">
-                    Please Register
-                </h2>
+                {pageLoading}
+                <h2 className="text-info text-center mb-4">Please Register</h2>
                 <Form onSubmit={handleRegister}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>

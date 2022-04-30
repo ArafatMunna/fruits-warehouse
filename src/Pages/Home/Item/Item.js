@@ -7,7 +7,7 @@ const Item = ({ item }) => {
     const navigate = useNavigate();
     return (
         <div className="col-sm-12 col-md-6 col-lg-4 g-5">
-            <div className="card">
+            <div className="card shadow">
                 <img
                     height={250}
                     src={img}
