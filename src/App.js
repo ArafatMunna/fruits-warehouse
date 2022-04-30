@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import ItemUpdate from './Pages/ItemUpdate/ItemUpdate';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
+import NotFound from './Pages/Shared/NotFound/NotFound';
 
 function App() {
     return (
@@ -54,6 +55,7 @@ function App() {
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
             <ToastContainer />
