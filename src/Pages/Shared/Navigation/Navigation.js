@@ -58,6 +58,15 @@ const Navigation = () => {
                         )}
                         {user ? (
                             <div>
+                                <Nav.Link as={CustomLink} to="/myitems">
+                                    MyItems
+                                </Nav.Link>
+                            </div>
+                        ) : (
+                            ''
+                        )}
+                        {user ? (
+                            <div>
                                 <Nav.Link
                                     className="text-black"
                                     onClick={handleSignOut}

@@ -13,6 +13,7 @@ import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import ItemUpdate from './Pages/ItemUpdate/ItemUpdate';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import MyItems from './Pages/MyItems/MyItems';
 
 function App() {
     return (
@@ -45,10 +46,10 @@ function App() {
                     }
                 />
                 <Route
-                    path="/manageinventories"
+                    path="/myitems"
                     element={
                         <RequireAuth>
-                            <ManageInventories />
+                            <MyItems />
                         </RequireAuth>
                     }
                 />
