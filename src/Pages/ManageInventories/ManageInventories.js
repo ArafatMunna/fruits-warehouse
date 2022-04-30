@@ -74,7 +74,9 @@ const ManageInventories = () => {
                                     );
                                 })
                             ) : (
-                                <div>No Data Found</div>
+                                <tr>
+                                    <td>No Data Found</td>
+                                </tr>
                             )}
                         </tbody>
                     </Table>

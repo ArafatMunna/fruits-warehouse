@@ -1,13 +1,16 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { set } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [items, setItems] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const myItems = async () => {
@@ -15,8 +18,24 @@ const MyItems = () => {
 
             const url = `http://localhost:5000/myitems?email=${email}`;
 
-            const { data } = await axios.get(url);
-            setItems(data);
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            'accessToken'
+                        )}`,
+                    },
+                });
+                setItems(data);
+            } catch (error) {
+                if (
+                    error.response.status === 401 ||
+                    error.response.status === 403
+                ) {
+                    signOut(auth);
+                    navigate('/login');
+                }
+            }
         };
         myItems();
     }, [user]);
@@ -82,7 +101,9 @@ const MyItems = () => {
                                     );
                                 })
                             ) : (
-                                <div>No Data Found</div>
+                                <tr>
+                                    <td>No Data Found</td>
+                                </tr>
                             )}
                         </tbody>
                     </Table>
