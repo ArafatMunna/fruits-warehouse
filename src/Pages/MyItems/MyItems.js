@@ -57,7 +57,7 @@ const MyItems = () => {
     return (
         <div className="container mt-5">
             <div style={{ height: '100vh' }}>
-                <h3 className="text-center">My Items</h3>
+                <h3 className="text-center text-info">My Items</h3>
                 <h5 className="text-center mb-4">{user?.email}</h5>
                 <div className="text-center">
                     <Table striped bordered hover>

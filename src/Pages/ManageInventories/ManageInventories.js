@@ -31,7 +31,7 @@ const ManageInventories = () => {
     return (
         <div className="container mt-5">
             <div style={{ height: '100vh' }}>
-                <h3 className="text-center mb-4">Manage Inventories</h3>
+                <h3 className="text-center text-info mb-4">Manage Inventories</h3>
                 <div className="text-center">
                     <Table striped bordered hover>
                         <thead>

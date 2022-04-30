@@ -13,11 +13,11 @@ const Inventory = () => {
             .then((res) => setItems(res.data));
     }, []);
     return (
-        <div>
+        <div className='container mb-5'>
             {!items ? (
                 <Loading />
             ) : (
-                <div className="container">
+                <div>
                     <h3 className="text-center">Inventory</h3>
                     <div className="row">
                         {items.map((item) => (
