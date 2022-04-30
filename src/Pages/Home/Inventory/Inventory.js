@@ -14,8 +14,10 @@ const Inventory = () => {
     }, []);
     return (
         <div>
-            {!items ?  <Loading /> : (
-                <div>
+            {!items ? (
+                <Loading />
+            ) : (
+                <div className="container">
                     <h3 className="text-center">Inventory</h3>
                     <div className="row">
                         {items.map((item) => (
@@ -30,7 +32,7 @@ const Inventory = () => {
                         </Link>
                     </div>
                 </div>
-            )} 
+            )}
         </div>
     );
 };
