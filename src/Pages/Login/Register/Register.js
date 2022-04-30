@@ -44,7 +44,7 @@ const Register = () => {
     return (
         <div className="container">
             <div className="mx-auto mt-5 px-4 pt-5 form-container">
-                <h2 className="text-secondary text-center mb-4">
+                <h2 className="text-info text-center mb-4">
                     Please Register
                 </h2>
                 <Form onSubmit={handleRegister}>
@@ -81,7 +81,7 @@ const Register = () => {
                     <p className="text-danger">{error}</p>
                     <Button
                         className="w-50 d-block mx-auto "
-                        variant="secondary"
+                        variant="info"
                         type="submit"
                     >
                         Register

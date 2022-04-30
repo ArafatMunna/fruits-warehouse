@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-import auth from '../../../firebase.init';
+import auth from '../../firebase.init';
 
 const AddItem = () => {
     const [user] = useAuthState(auth);
@@ -36,6 +36,7 @@ const AddItem = () => {
     return (
         <div className="container">
             <div className="mx-auto mt-5 px-4 pt-5 form-container">
+                <h2 className='text-center text-info'>Add Item</h2>
                 <Form onSubmit={handleAddItem}>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Item Name</Form.Label>
@@ -111,7 +112,7 @@ const AddItem = () => {
                     </Form.Group>
                     <Button
                         className="w-50 d-block mx-auto "
-                        variant="secondary"
+                        variant="info"
                         type="submit"
                     >
                         Add Item

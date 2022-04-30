@@ -7,11 +7,11 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navigation from './Pages/Shared/Navigation/Navigation';
-import AddItem from './Pages/Home/AddItem/AddItem';
+import AddItem from './Pages/AddItem/AddItem';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
-import ItemUpdate from './Pages/Home/ItemUpdate/ItemUpdate';
-import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
+import ItemUpdate from './Pages/ItemUpdate/ItemUpdate';
+import ManageInventories from './Pages/ManageInventories/ManageInventories';
 
 function App() {
     return (
@@ -32,6 +32,14 @@ function App() {
                     element={
                         <RequireAuth>
                             <ItemUpdate />
+                        </RequireAuth>
+                    }
+                />
+                <Route
+                    path="/manageinventories"
+                    element={
+                        <RequireAuth>
+                            <ManageInventories />
                         </RequireAuth>
                     }
                 />

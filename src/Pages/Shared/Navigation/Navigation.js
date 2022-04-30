@@ -17,7 +17,7 @@ const Navigation = () => {
         <Navbar
             collapseOnSelect
             expand="lg"
-            bg='info'
+            bg="info"
             variant="dark"
             sticky="top"
             className="navigation"
@@ -32,12 +32,30 @@ const Navigation = () => {
                         <Nav.Link as={CustomLink} to="/">
                             Home
                         </Nav.Link>
-                        <Nav.Link as={CustomLink} to="/additem">
-                            AddItem
-                        </Nav.Link>
                         <Nav.Link as={CustomLink} to="/blogs">
                             Blogs
                         </Nav.Link>
+                        {user ? (
+                            <div>
+                                <Nav.Link
+                                    as={CustomLink}
+                                    to="/manageinventories"
+                                >
+                                    ManageItems
+                                </Nav.Link>
+                            </div>
+                        ) : (
+                            ''
+                        )}
+                        {user ? (
+                            <div>
+                                <Nav.Link as={CustomLink} to="/additem">
+                                    AddItem
+                                </Nav.Link>
+                            </div>
+                        ) : (
+                            ''
+                        )}
                         {user ? (
                             <div>
                                 <Nav.Link

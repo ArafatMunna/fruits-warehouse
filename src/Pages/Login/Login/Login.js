@@ -58,7 +58,7 @@ const Login = () => {
     return (
         <div className="container">
             <div className=" mx-auto mt-5 form-container px-4 pt-5">
-                <h2 className="text-secondary text-center mb-4">
+                <h2 className="text-info text-center mb-4">
                     Please Login
                 </h2>
                 <Form onSubmit={handleLogin}>
@@ -83,7 +83,7 @@ const Login = () => {
                     <p className="text-danger">{error}</p>
                     <Button
                         className="w-50 mx-auto d-block"
-                        variant="secondary"
+                        variant="info"
                         type="submit"
                     >
                         Login
