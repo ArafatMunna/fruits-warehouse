@@ -60,7 +60,7 @@ const MyItems = () => {
                 <h3 className="text-center text-info">My Items</h3>
                 <h5 className="text-center mb-4">{user?.email}</h5>
                 <div className="text-center">
-                    <Table striped bordered hover>
+                    <Table striped bordered hover responsive>
                         <thead>
                             <tr>
                                 <th>Item Name</th>

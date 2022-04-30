@@ -37,7 +37,7 @@ const ManageInventories = () => {
                     Manage Inventories
                 </h3>
                 <div className="text-center">
-                    <Table striped bordered hover>
+                    <Table striped bordered hover responsive>
                         <thead>
                             <tr>
                                 <th>Item Name</th>
