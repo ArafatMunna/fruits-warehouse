@@ -1,20 +1,20 @@
 import React from 'react';
-import { FormControl, InputGroup } from 'react-bootstrap';
+import { Button, FormControl, InputGroup } from 'react-bootstrap';
 
 const Subcribtion = () => {
     return (
         <div className="bg-info">
             <div className="card-container mx-auto p-5">
                 <h3 className="text-center">Please Subscribe</h3>
-                <InputGroup size="lg">
+                <InputGroup className="mb-3">
                     <FormControl
-                        aria-label="Large"
-                        aria-describedby="inputGroup-sizing-sm"
                         placeholder="Enter Your Email Address"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
                     />
-                    <InputGroup.Text id="inputGroup-sizing-lg">
-                        Subscribe
-                    </InputGroup.Text>
+                    <Button variant="secondary" id="button-addon2">
+                        Button
+                    </Button>
                 </InputGroup>
             </div>
         </div>

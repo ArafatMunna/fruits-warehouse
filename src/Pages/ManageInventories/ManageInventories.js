@@ -52,7 +52,7 @@ const ManageInventories = () => {
                             {items?.length ? (
                                 items.map((item) => {
                                     return (
-                                        <tr>
+                                        <tr key={item._id}>
                                             <td>{item?.name}</td>
                                             <td>{item?.price}</td>
                                             <td>{item?.quantity}</td>

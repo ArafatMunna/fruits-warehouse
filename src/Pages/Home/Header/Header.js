@@ -4,9 +4,10 @@ const Header = () => {
     const fruits1 = process.env.PUBLIC_URL + 'images/fruits1.jpg';
     return (
         <div className="container mt-3 mb-5">
+            <h2 className='text-center text-info mb-3'>Overview</h2>
             <div className="row">
                 <div className="col-12 col-md-6">
-                    <p className="mt-4">
+                    <p className="p-2">
                         We have 11,500 m2 of storage space with variable
                         temperature, all computer monitored. In our warehouses,
                         each delivery is entered into our ERP system (Navision)

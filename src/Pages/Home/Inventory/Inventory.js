@@ -14,11 +14,11 @@ const Inventory = () => {
     }, []);
     return (
         <div className="container mb-5">
-            {!items ? (
+            {!items.length ? (
                 <Loading />
             ) : (
                 <div>
-                    <h3 className="text-center">Inventory</h3>
+                    <h3 className="text-center text-info">Inventory</h3>
                     <div className="row">
                         {items.map((item) => (
                             <Item key={item._id} item={item} />
