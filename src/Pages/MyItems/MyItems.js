@@ -16,7 +16,7 @@ const MyItems = () => {
         const myItems = async () => {
             const email = user?.email;
 
-            const url = `http://localhost:5000/myitems?email=${email}`;
+            const url = `https://fruits-warehouse-server.herokuapp.com/myitems?email=${email}`;
 
             try {
                 const { data } = await axios.get(url, {
@@ -43,7 +43,7 @@ const MyItems = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/item/${id}`;
+            const url = `https://fruits-warehouse-server.herokuapp.com/item/${id}`;
 
             axios.delete(url).then((res) => {
                 const { data } = res;

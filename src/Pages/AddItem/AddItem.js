@@ -29,14 +29,17 @@ const AddItem = () => {
         };
         // console.log(item);
 
-        const { data } = await axios.post('http://localhost:5000/item', item);
+        const { data } = await axios.post(
+            'https://fruits-warehouse-server.herokuapp.com/item',
+            item
+        );
         toast.success(data.message);
         event.target.reset();
     };
     return (
         <div className="container">
             <div className="mx-auto mt-5 px-4 pt-5 form-container">
-                <h2 className='text-center text-info'>Add Item</h2>
+                <h2 className="text-center text-info">Add Item</h2>
                 <Form onSubmit={handleAddItem}>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Item Name</Form.Label>

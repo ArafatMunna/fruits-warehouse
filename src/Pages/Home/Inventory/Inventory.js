@@ -9,11 +9,11 @@ const Inventory = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/item?limit=6')
+            .get('https://fruits-warehouse-server.herokuapp.com/item?limit=6')
             .then((res) => setItems(res.data));
     }, []);
     return (
-        <div className='container mb-5'>
+        <div className="container mb-5">
             {!items ? (
                 <Loading />
             ) : (

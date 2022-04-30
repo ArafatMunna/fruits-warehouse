@@ -8,15 +8,17 @@ const ManageInventories = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/item').then((res) => {
-            setItems(res.data);
-        });
+        axios
+            .get('https://fruits-warehouse-server.herokuapp.com/item')
+            .then((res) => {
+                setItems(res.data);
+            });
     }, [items]);
 
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/item/${id}`;
+            const url = `https://fruits-warehouse-server.herokuapp.com/item/${id}`;
 
             axios.delete(url).then((res) => {
                 const { data } = res;
@@ -31,7 +33,9 @@ const ManageInventories = () => {
     return (
         <div className="container mt-5">
             <div style={{ height: '100vh' }}>
-                <h3 className="text-center text-info mb-4">Manage Inventories</h3>
+                <h3 className="text-center text-info mb-4">
+                    Manage Inventories
+                </h3>
                 <div className="text-center">
                     <Table striped bordered hover>
                         <thead>

@@ -12,13 +12,16 @@ const ItemUpdate = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/item/${itemId}`)
+            .get(`https://fruits-warehouse-server.herokuapp.com/item/${itemId}`)
             .then((res) => setItem(res.data));
     }, [itemId, item]);
 
     const updateItem = (newQuantity) => {
         axios
-            .put(`http://localhost:5000/item/${itemId}`, { newQuantity })
+            .put(
+                `https://fruits-warehouse-server.herokuapp.com/item/${itemId}`,
+                { newQuantity }
+            )
             .then((res) => {
                 setItem(res.data);
                 toast.success(res?.data?.message);
