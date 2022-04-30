@@ -11,7 +11,7 @@ import AddItem from './Pages/Home/AddItem/AddItem';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import ItemUpdate from './Pages/Home/ItemUpdate/ItemUpdate';
-
+import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
 
 function App() {
     return (
@@ -32,6 +32,14 @@ function App() {
                     element={
                         <RequireAuth>
                             <ItemUpdate />
+                        </RequireAuth>
+                    }
+                />
+                <Route
+                    path="/manageinventories"
+                    element={
+                        <RequireAuth>
+                            <ManageInventories />
                         </RequireAuth>
                     }
                 />

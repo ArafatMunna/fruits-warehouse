@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './ItemUpdate.css';
 
@@ -80,6 +80,11 @@ const ItemUpdate = () => {
                         Restock Item
                     </Button>
                 </Form>
+            </div>
+            <div className="mt-3 text-center">
+                <Link to="/manageinventories">
+                    <button className="btn btn-info">Manage Invetories</button>
+                </Link>
             </div>
         </div>
     );

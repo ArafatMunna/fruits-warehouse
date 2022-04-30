@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Item from '../Item/Item';
 
 const Inventory = () => {
@@ -8,15 +9,22 @@ const Inventory = () => {
     useEffect(() => {
         axios
             .get('http://localhost:5000/item?limit=6')
-            .then((res) => setItems(res.data))
+            .then((res) => setItems(res.data));
     }, []);
     return (
         <div>
-            <h3 className='text-center'>Inventory</h3>
+            <h3 className="text-center">Inventory</h3>
             <div className="row">
                 {items.map((item) => (
                     <Item key={item._id} item={item} />
                 ))}
+            </div>
+            <div className='mt-3 text-center'>
+                <Link to="/manageinventories">
+                    <button className="btn btn-info">
+                        Manage Invetories
+                    </button>
+                </Link>
             </div>
         </div>
     );
