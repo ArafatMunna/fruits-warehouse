@@ -85,7 +85,7 @@ const ManageInventories = () => {
                         </tbody>
                     </Table>
                 </div>
-                <div className="text-center">
+                <div className="text-center mt-3">
                     <button
                         onClick={() => navigate('/additem')}
                         className="btn btn-info w-25"
