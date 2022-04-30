@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -15,6 +16,8 @@ const Register = () => {
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
+
+        const [token] = useToken(user);
 
     let pageLoading;
 
@@ -29,10 +32,10 @@ const Register = () => {
     }, [hookError]);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate('/');
         }
-    }, [user]);
+    }, [token]);
 
     const handleRegister = (event) => {
         event.preventDefault();

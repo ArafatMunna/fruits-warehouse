@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 
 const SocialLogin = () => {
     const google = process.env.PUBLIC_URL + 'images/google.png';
@@ -14,6 +15,8 @@ const SocialLogin = () => {
     const [signInWithGoogle, user, loading, hookError] =
         useSignInWithGoogle(auth);
 
+    const [token] = useToken(user);
+
     useEffect(() => {
         if (hookError) {
             setError(hookError.message);
@@ -21,10 +24,10 @@ const SocialLogin = () => {
     }, [hookError]);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user]);
+    }, [token]);
 
     const handleGoogleLogin = () => {
         setError('');

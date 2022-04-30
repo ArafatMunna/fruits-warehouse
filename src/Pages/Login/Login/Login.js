@@ -10,6 +10,7 @@ import {
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef();
@@ -25,6 +26,8 @@ const Login = () => {
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
+    const [token] = useToken(user);
+
     let pageLoading;
 
     if (loading) {
@@ -38,10 +41,10 @@ const Login = () => {
     }, [hookError]);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(form, { replace: true });
         }
-    }, [user]);
+    }, [token]);
 
     const handleLogin = (event) => {
         event.preventDefault();
