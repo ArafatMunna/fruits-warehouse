@@ -39,9 +39,13 @@ const ItemUpdate = () => {
         event.preventDefault();
 
         const addedQuantity = event.target.quantity.value;
-        const newQuantity = parseInt(quantity) + parseInt(addedQuantity);
-        updateItem(newQuantity);
-        event.target.reset();
+        if (addedQuantity > 0) {
+            const newQuantity = parseInt(quantity) + parseInt(addedQuantity);
+            updateItem(newQuantity);
+            event.target.reset();
+        } else {
+            toast.error('Please give a positve number greater than 0');
+        }
     };
     return (
         <div className="container mt-5">
